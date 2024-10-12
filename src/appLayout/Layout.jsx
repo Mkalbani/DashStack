@@ -13,6 +13,10 @@ import {
 } from "@heroicons/react/24/outline";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Link, useLocation } from "react-router-dom";
+import ngFlag from "../assets/images/ng.png";
+import { getAuth } from "firebase/auth";
+import ProfileDropdown from "../components/ProfileDropdown";
+
 
 const notifications = [
   {
@@ -118,7 +122,12 @@ export default function Layout() {
     setSearchResults([]);
     navigate(route);
   };
-
+  
+  const auth = getAuth()
+  const onLoggedOut = () => {
+    auth.signOut();
+    navigate("/");
+  };
   return (
     <div className="flex h-screen overflow-hidden bg-gray-900">
       {/* Mobile sidebar */}
@@ -176,7 +185,7 @@ export default function Layout() {
                 </Transition.Child>
                 <div className="h-0 flex-1 overflow-y-auto pt-5 pb-4">
                   <div className="flex flex-shrink-0 items-center px-4">
-                    <h1 className="text-xl font-bold text-white">
+                    <h1 className="text-xl font-bold text-white ">
                       <span className="text-blue-500">Dash</span>Stack
                     </h1>
                   </div>
@@ -187,7 +196,7 @@ export default function Layout() {
                         to={item.href}
                         className={classNames(
                           location.pathname === item.href
-                            ? "bg-customBlue text-white relative"
+                            ? "bg-blue-500 px-0 py-3 text-white w-5/6"
                             : "text-gray-300 hover:bg-gray-700 hover:text-white",
                           "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                         )}
@@ -195,14 +204,14 @@ export default function Layout() {
                       >
                         {location.pathname === item.href && (
                           <span
-                            className="absolute inset-y-0 left-0 w-1 bg-blue-500 rounded-tr-md rounded-br-md"
+                            className=" inset-y-0 left-0 w-1 bg-blue-500 rounded-tr-md rounded-br-md"
                             aria-hidden="true"
                           ></span>
                         )}
                         <span
                           className={
                             location.pathname === item.href
-                              ? "text-blue-500"
+                              ? "text-white"
                               : ""
                           }
                         >
@@ -222,11 +231,11 @@ export default function Layout() {
                           to={page.href}
                           className={classNames(
                             location.pathname === page.href
-                              ? "bg-customBlue text-white"
+                              ? "bg-blue-500 px-0 py-3 text-white w-5/6"
                               : "text-gray-300 hover:bg-gray-700 hover:text-white",
                             "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                           )}
-                          onClick={() => setSidebarOpen(true)}
+                          onClick={() => setSidebarOpen(false)}
                         >
                           {page.name}
                         </Link>
@@ -235,7 +244,7 @@ export default function Layout() {
                   </div>
                   <div className="mt-5 px-2">
                     <nav className="mt-2 space-y-1">
-                      {userNavigation.map((page) => (
+                      {/* {userNavigation.map((page) => (
                         <Link
                           key={page.name}
                           to={page.href}
@@ -249,7 +258,46 @@ export default function Layout() {
                         >
                           {page.name}
                         </Link>
-                      ))}
+                      ))} */}
+                      <Link
+                        key="settings"
+                        to="/settings"
+                        className={classNames(
+                          location.pathname === "/settings"
+                            ? "bg-blue-500 px-0 py-3 text-white w-5/6"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                        )}
+                        onClick={() => setSidebarOpen(false)}
+                      >
+                        Settings
+                      </Link>
+                    </nav>
+                    <nav className="mt-2 space-y-1">
+                      {/* {userNavigation.map((page) => (
+                        <Link
+                          key={page.name}
+                          to={page.href}
+                          className={classNames(
+                            location.pathname === page.href
+                              ? "bg-customBlue text-white"
+                              : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                            "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                          )}
+                          onClick={() => setSidebarOpen(true)}
+                        >
+                          {page.name}
+                        </Link>
+                      ))} */}
+                      <p
+                        className="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                        onClick={() => {
+                          setSidebarOpen(false);
+                          onLoggedOut();
+                        }}
+                      >
+                        Log out
+                      </p>
                     </nav>
                   </div>
                 </div>
@@ -265,31 +313,31 @@ export default function Layout() {
         <div className="flex w-64 flex-col">
           <div className="flex flex-grow flex-col overflow-y-auto bg-gray-800 pt-5 pb-4">
             <div className="flex flex-shrink-0 items-center px-4">
-              <h1 className="text-xl font-bold text-white">
+              <h1 className="text-xl font-bold text-white ">
                 <span className="text-blue-500">Dash</span>Stack
               </h1>
             </div>
-            <nav className="mt-5 flex-1 space-y-1 px-2">
+            <nav className="mt-5 flex-1 space-y-1 px-2 border-b border-gray-700">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   className={classNames(
                     location.pathname === item.href
-                      ? "bg-customBlue text-white relative"
+                      ? "bg-blue-500 text-white px-0 py-3 w-5/6"
                       : "text-gray-300 hover:bg-gray-700 hover:text-white",
                     "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                   )}
                 >
                   {location.pathname === item.href && (
                     <span
-                      className="absolute inset-y-0 left-0 w-1 bg-blue-500 rounded-tr-md rounded-br-md"
+                      className=" inset-y-0 left-0 w-1 bg-blue-500 rounded-tr-md rounded-br-md"
                       aria-hidden="true"
                     ></span>
                   )}
                   <span
                     className={
-                      location.pathname === item.href ? "text-blue-500" : ""
+                      location.pathname === item.href ? "text-white" : ""
                     }
                   >
                     {item.name}
@@ -301,18 +349,18 @@ export default function Layout() {
               <h3 className="px-3 text-sm font-medium text-gray-500 uppercase tracking-wider">
                 Pages
               </h3>
-              <nav className="mt-2 space-y-1">
+              <nav className="mt-2 space-y-1 border-b border-gray-700">
                 {pages.map((page) => (
                   <Link
                     key={page.name}
                     to={page.href}
                     className={classNames(
                       location.pathname === page.href
-                        ? "bg-customBlue text-white"
+                        ? "bg-blue-500 px-0 py-3 text-white w-5/6"
                         : "text-gray-300 hover:bg-gray-700 hover:text-white",
                       "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                     )}
-                    onClick={() => setSidebarOpen(true)}
+                    onClick={() => setSidebarOpen(false)}
                   >
                     {page.name}
                   </Link>
@@ -321,7 +369,7 @@ export default function Layout() {
             </div>
             <div className="mt-5 px-2">
               <nav className="mt-2 space-y-1">
-                {userNavigation.map((page) => (
+                {/* {userNavigation.map((page) => (
                   <Link
                     key={page.name}
                     to={page.href}
@@ -335,7 +383,46 @@ export default function Layout() {
                   >
                     {page.name}
                   </Link>
-                ))}
+                ))} */}
+                <Link
+                  key="settings"
+                  to="/settings"
+                  className={classNames(
+                    location.pathname === "/settings"
+                      ? "bg-blue-500 px-0 py-3 text-white w-5/6"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                  )}
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  Settings
+                </Link>
+              </nav>
+              <nav className="mt-2 space-y-1">
+                {/* {userNavigation.map((page) => (
+                  <Link
+                    key={page.name}
+                    to={page.href}
+                    className={classNames(
+                      location.pathname === page.href
+                        ? "bg-customBlue text-white"
+                        : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                      "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                    )}
+                    onClick={() => setSidebarOpen(true)}
+                  >
+                    {page.name}
+                  </Link>
+                ))} */}
+                <p
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                  onClick={() => {
+                    setSidebarOpen(false);
+                    onLoggedOut();
+                  }}
+                >
+                  Log out
+                </p>
               </nav>
             </div>
           </div>
@@ -347,7 +434,7 @@ export default function Layout() {
         {/* Top navigation bar */}
         <header className="bg-gray-800 shadow">
           <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center">
+            <div className="flex flex-end">
               <button
                 type="button"
                 className="lg:hidden text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -357,14 +444,14 @@ export default function Layout() {
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               </button>
               <div className="ml-4 flex-shrink-0 lg:hidden">
-                <h1 className="text-xl font-bold text-white">
+                <h1 className="text-xl font-bold text-white hidden sm:block">
                   <span className="text-blue-500">Dash</span>Stack
                 </h1>
               </div>
             </div>
-            <div className="flex-1 px-2 flex justify-center lg:ml-6 lg:justify-start">
+            <div className="flex-1 px-2 text-sm flex justify-center lg:ml-6 lg:justify-start">
               <div className=" max-w-lg w-full lg:max-w-xs">
-                <label htmlFor="search" className="sr-only">
+                <label htmlFor="search" className="sr-only text-sm">
                   Search
                 </label>
                 <div className="relative">
@@ -377,7 +464,7 @@ export default function Layout() {
                   <input
                     id="search"
                     name="search"
-                    className="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-700 text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 sm:text-sm"
+                    className="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-700 text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-gray-700 focus:border-gray-700 focus:ring-gray-700 focus:text-white sm:text-sm"
                     placeholder="Search"
                     type="search"
                     value={searchQuery}
@@ -452,7 +539,7 @@ export default function Layout() {
                           <div className="px-4 py-2 border-t border-gray-200">
                             <a
                               href="#"
-                              className="text-sm font-medium text-blue-600 hover:text-blue-500"
+                              className="text-sm font-medium text-blue-600 hover:text-white"
                             >
                               View all notifications
                             </a>
@@ -464,54 +551,14 @@ export default function Layout() {
                 </Popover>
               </div>
               <div className="hidden md:ml-4 md:flex md:items-center">
-                <img
-                  src="https://flagcdn.com/w20/gb.png"
-                  alt="UK Flag"
-                  className="h-4 w-6 mr-2"
-                />
+                <img src={ngFlag} alt="Nig Flag" className="h-4 w-6 mr-2" />
                 <span className="text-sm text-white">English</span>
                 <ChevronDownIcon
                   className="ml-1 h-5 w-5 text-gray-400"
                   aria-hidden="true"
                 />
               </div>
-              <Menu as="div" className="ml-3 relative">
-                <Menu.Button className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                  <span className="sr-only">Open user menu</span>
-                  <img
-                    className="h-8 w-8 rounded-full"
-                    src="src/assets/images/profile-pic.avif"
-                    alt=""
-                  />
-                </Menu.Button>
-                <Transition
-                  as={React.Fragment}
-                  enter="transition ease-out duration-100"
-                  enterFrom="transform opacity-0 scale-95"
-                  enterTo="transform opacity-100 scale-100"
-                  leave="transition ease-in duration-75"
-                  leaveFrom="transform opacity-100 scale-100"
-                  leaveTo="transform opacity-0 scale-95"
-                >
-                  <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    {userNavigation.map((item) => (
-                      <Menu.Item key={item}>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            {item}
-                          </a>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </Menu.Items>
-                </Transition>
-              </Menu>
+              <ProfileDropdown />
             </div>
           </div>
         </header>

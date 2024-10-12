@@ -23,6 +23,12 @@ import designConf from "./assets/images/designConf.avif";
 import festival from "./assets/images/festival.webp";
 import AddNewContact from "./components/AddNew/AddNewContact";
 import Settings from "./pages/Settings";
+import SignUp from "./pages/SignUp";
+import PrivateRoutes from "./components/PrivateRoutes";
+import SignIn from "./pages/SignIn";
+import ManageAccount from "./components/ManageAccount";
+import ChangePassword from "./components/ChangeAccount";
+import ActivityLog from "./components/ActivityLog";
 
 
 
@@ -192,11 +198,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <Layout>
-          <Outlet />
-        </Layout>
-      ),
+      element: <PrivateRoutes />,
       children: [
         {
           index: true,
@@ -260,18 +262,38 @@ function App() {
         },
 
         {
-          path: "/ui-elements",
+          path: "ui-elements",
           element: <UIElement />,
         },
         {
-          path: "/table",
+          path: "table",
           element: <Table />,
         },
         {
-          path: "/settings",
+          path: "settings",
           element: <Settings />,
         },
       ],
+    },
+    {
+      path: "signup",
+      element: <SignUp />,
+    },
+    {
+      path: "signin",
+      element: <SignIn />,
+    },
+    {
+      path: "manage-account",
+      element: <ManageAccount />,
+    },
+    {
+      path: "change-password",
+      element: <ChangePassword />,
+    },
+    {
+      path: "activity-log",
+      element: <ActivityLog />,
     },
   ]);
 

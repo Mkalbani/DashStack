@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Download, Info, Trash2 } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Download,
+  Info,
+  Trash2,
+} from "lucide-react";
 import EmailItem from "./EmailItem";
 import Chat from "./Chat";
 
@@ -95,7 +101,7 @@ const EmailList = ({
               <input
                 type="text"
                 placeholder="Search mail"
-                className="w-1/2 bg-gray-700 text-white p-2 rounded"
+                className="w-full md:w-1/2 bg-gray-700 text-white p-2 rounded"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -130,13 +136,13 @@ const EmailList = ({
                   isSelected={selectedEmails.includes(email.id)}
                   toggleEmailSelection={toggleEmailSelection}
                   toggleStar={toggleStar}
-                  onClick={() => handleEmailClick(email)}
+                  onClick={handleEmailClick}
                 />
               ))}
             </div>
           </div>
           <div className="mt-4 flex items-center justify-between text-sm text-gray-400">
-            <span>
+            <span className="hidden md:inline">
               Showing {startIndex + 1}-
               {Math.min(endIndex, filteredEmails.length)} of{" "}
               {filteredEmails.length}

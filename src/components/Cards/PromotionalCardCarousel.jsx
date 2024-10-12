@@ -34,28 +34,30 @@ const PromotionalCardCarousel = () => {
   const currentPromo = promotions[currentIndex];
 
   return (
-    <div className="bg-dash rounded-3xl p-8 text-white relative h-80 flex flex-col justify-between">
-      <div className="flex flex-col h-full justify-between ">
-        <div className="flex flex-col p-10 justify-center ">
-          <p className="text-sm mb-2">{currentPromo.date}</p>
-          <h2 className="text-4xl font-bold mb-4 leading-tight">
+    <div className="bg-dash rounded-3xl p-4 md:p-8 text-white relative h-72 md:h-80 flex flex-col justify-between">
+      <div className="flex flex-col h-full justify-between">
+        <div className="flex flex-col px-4 md:px-10 justify-center">
+          <p className="text-xs md:text-sm mb-1 md:mb-2">{currentPromo.date}</p>
+          <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4 leading-tight">
             {currentPromo.title}
           </h2>
-          <p className="mb-6">{currentPromo.description}</p>
+          <p className="text-xs md:text-base mb-4 md:mb-6">
+            {currentPromo.description}
+          </p>
         </div>
-        <button className="bg-orange-500 ml-8 text-white font-semibold py-2 px-4 rounded-full hover:bg-orange-600 transition duration-300 self-start">
+        <button className="bg-orange-500 ml-4 md:ml-8 text-xs md:text-sm text-white py-2 md:py-3 px-6 md:px-8 rounded-md hover:bg-orange-600 transition duration-300 self-start">
           Get Started
         </button>
       </div>
 
       <button
         onClick={prevPromotion}
-        className="absolute text-black left-2 top-1/2 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-500 rounded-full p-2  transition duration-300"
+        className="absolute text-black left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-500 rounded-full p-1 md:p-2 transition duration-300"
         aria-label="Previous promotion"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
+          className="h-4 w-4 md:h-6 md:w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -71,12 +73,12 @@ const PromotionalCardCarousel = () => {
 
       <button
         onClick={nextPromotion}
-        className="absolute text-black right-2 top-1/2 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-500 rounded-full p-2  transition duration-300"
+        className="absolute text-black right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-500 rounded-full p-1 md:p-2 transition duration-300"
         aria-label="Next promotion"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
+          className="h-4 w-4 md:h-6 md:w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

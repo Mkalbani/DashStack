@@ -54,13 +54,14 @@ const Sidebar = ({
   };
 
   return (
-    <div className="w-64 bg-gray-800 p-4 rounded-2xl">
+    <div className="w-16 sm:w-64 bg-gray-800 p-2 rounded-2xl">
       <button
-        className="w-full bg-blue-500 text-white py-2 rounded mb-4 text-sm"
+        className="w-full bg-blue-500 text-white py-2 rounded mb-4 text-xs sm:text-sm "
         onClick={() => setComposeOpen(true)}
       >
-        + Compose
+        +<p className="hidden sm:in-line"> Compose</p>
       </button>
+      <h3 className="py-2 hidden sm:block text-white">My Email</h3>
       <div className="space-y-2">
         <FolderItem
           icon={Mail}
@@ -112,7 +113,7 @@ const Sidebar = ({
           setCurrentFolder={setCurrentFolder}
         />
       </div>
-      <div className="mt-4">
+      <div className="mt-4 hidden sm:block">
         <h3 className="mb-2 text-sm font-medium text-gray-300">Labels</h3>
         {labels.map((label) => (
           <div key={label} className="flex items-center mb-1">
@@ -121,11 +122,14 @@ const Sidebar = ({
               id={`label-${label}`}
               checked={selectedLabels.includes(label)}
               onChange={() => toggleLabel(label)}
-              className={`mr-2 w-4 h-4 border-2 rounded-sm bg-gray-700 ${getLabelColor(
+              className={`mr-2 w-4 h-4 border-2 rounded-sm  bg-gray-700 ${getLabelColor(
                 label
               )} checked:bg-blue-600 checked:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500`}
             />
-            <label htmlFor={`label-${label}`} className="cursor-pointer">
+            <label
+              htmlFor={`label-${label}`}
+              className="cursor-pointer text-sm"
+            >
               {label}
             </label>
           </div>

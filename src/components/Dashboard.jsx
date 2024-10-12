@@ -1,14 +1,14 @@
 import React from "react";
 import {
   ChartBarIcon,
-  InboxIcon,
-  ShoppingCartIcon,
+  ClockIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
 import DealsDetails from "./DealsDetails";
 import RevenueChart from "./Charts/RevenueChart";
 import Cards from "./Cards";
 import SalesChart from "./Charts/SalesChart";
+import { HiCube } from "react-icons/hi2";
 
 const Dashboard = () => {
   return (
@@ -28,7 +28,7 @@ const Dashboard = () => {
           title="Total Order"
           value="10293"
           change="1.3%"
-          icon={ShoppingCartIcon}
+          icon={HiCube}
           iconBg="bg-yellow-500"
           text=" Up from past week"
         />
@@ -45,7 +45,7 @@ const Dashboard = () => {
           title="Total Pending"
           value="2040"
           change="1.8%"
-          icon={InboxIcon}
+          icon={ClockIcon}
           iconBg="bg-orange-500"
           text="Up from yesterday"
         />
