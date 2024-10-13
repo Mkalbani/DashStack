@@ -16,15 +16,13 @@ const DealsDetails = () => {
   ];
 
   return (
-    <div className="bg-gray-800 rounded-lg p-6 mt-5">
+    <div className="bg-gray-800 rounded-lg p-3 mt-5">
       <div className="flex flex-wrap justify-between items-center mb-4">
         <h2 className="text-xl font-semibold text-white">Deals Details</h2>
         <MonthBtn />
       </div>
       <div className="overflow-x-auto">
-        <table className="min-w-[900px] w-full text-sm">
-          {" "}
-          {/* Adjusted min-width */}
+        <table className="min-w-[700px] w-full text-sm">
           <thead className="bg-tHead rounded-3xl">
             <tr className="text-white font-light">
               <th className="text-left py-2 pl-4 rounded-l-2xl">

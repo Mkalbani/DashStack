@@ -159,16 +159,16 @@ const Table = () => {
     orderType: [],
     orderStatus: "",
   });
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobile(window.innerWidth < 768);
+  //   };
+  //   handleResize();
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
   const filteredData = orderData.filter((order) => {
     return (
       (filters.date === "" || order.date.includes(filters.date)) &&
@@ -262,7 +262,7 @@ const Table = () => {
   return (
     <div>
       <h1 className="text-2xl font-semibold text-white mb-6">Table</h1>
-      {!isMobile && (
+      {/* {!isMobile && ( */}
         <OrderTable
           data={currentData}
           currentPage={currentPage}
@@ -271,7 +271,7 @@ const Table = () => {
           onPageChange={(newPage) => setCurrentPage(newPage)}
           enablePagination={false}
         />
-      )}
+      {/* )} */}
 
       {/* product stock  */}
       <div className="overflow-x-auto text-white mt-5">

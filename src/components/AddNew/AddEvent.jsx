@@ -26,11 +26,17 @@ const navigate = useNavigate()
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
-    setFormData((prevState) => ({
-      ...prevState,
-      image: file,
-    }));
-    setImagePreview(URL.createObjectURL(file));
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData((prevState) => ({
+          ...prevState,
+          image: reader.result,
+        }));
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -130,7 +136,7 @@ const navigate = useNavigate()
             />
           </div>
 
-          <div className="flex justify-center gap-4 w-full mb-3">
+          <div className="flex justify-center gap-4 w-full mb-">
             <button
               type="button"
               onClick={onCancel}

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-const PricingTier = ({ title, price, features, isHighlighted }) => (
+const PricingTier = ({ title, price, features, isHighlighted, onClick }) => (
   <div
-    className={`flex flex-col p-6 bg-gray-800 rounded-3xl text-sm ${
+    className={`flex flex-col p-6 bg-gray-800 rounded-3xl text-sm cursor-pointer ${
       isHighlighted ? "border-2 border-blue-500" : ""
     }`}
+    onClick={onClick}
   >
     <h2 className="text-xl font-semibold text-white mb-2">{title}</h2>
     <p className="text-3xl font-bold text-blue-500 mb-12">${price}</p>
@@ -32,6 +33,8 @@ const PricingTier = ({ title, price, features, isHighlighted }) => (
 );
 
 const Pricing = () => {
+  const [selectedTier, setSelectedTier] = useState(null); 
+
   const tiers = [
     {
       title: "Basic",
@@ -84,7 +87,8 @@ const Pricing = () => {
             title={tier.title}
             price={tier.price}
             features={tier.features}
-            isHighlighted={index === 2}
+            isHighlighted={selectedTier === index} 
+            onClick={() => setSelectedTier(index)} 
           />
         ))}
       </div>

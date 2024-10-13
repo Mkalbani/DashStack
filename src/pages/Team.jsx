@@ -4,7 +4,7 @@ import TeamMemberCard from "../components/Cards/TeamMemberCard";
 
 const Team = ({ members }) => {
   return (
-    <div className="bg-gray-900 min-h-screen p-8">
+    <div className="bg-gray-900 min-h-screen p-1">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-white">Team</h2>

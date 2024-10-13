@@ -143,15 +143,15 @@ const ProductStock = () => {
 
   return (
     <div className="bg-gray-900 text-white rounded-lg">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-semibold text-white mb-6">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 ">
+        <h1 className="text-2xl font-semibold text-white mb-6 ">
           Product Stock
         </h1>
         <div className="relative">
           <input
             type="text"
             placeholder="Search product name"
-            className="bg-gray-800 text-white px-4 py-2 pr-10 rounded-full"
+            className="bg-gray-800 text-white px-4 py-2 pr-10 rounded-full sm:px-3 sm:py-1 sm:text-sm"
             value={searchTerm}
             onChange={handleSearch}
           />

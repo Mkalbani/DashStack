@@ -464,7 +464,7 @@ export default function Layout() {
                   <input
                     id="search"
                     name="search"
-                    className="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-700 text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-gray-700 focus:border-gray-700 focus:ring-gray-700 focus:text-white sm:text-sm"
+                    className="block w-full pl-10 pr-3 py-2 border border-transparent rounded-2xl leading-5 bg-gray-700 text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-gray-700 focus:border-gray-700 focus:ring-gray-700 focus:text-white sm:text-sm"
                     placeholder="Search"
                     type="search"
                     value={searchQuery}

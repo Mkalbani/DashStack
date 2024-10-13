@@ -178,18 +178,18 @@ const OrderLists = () => {
     orderType: [],
     orderStatus: "",
   });
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
   const itemsPerPage = 9;
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobile(window.innerWidth < 768);
+  //   };
+  //   handleResize();
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   const handleOpenOrderTypeModal = () => {
     setIsOrderTypeModalOpen(true);
@@ -373,7 +373,7 @@ const OrderLists = () => {
         onClose={() => setIsCalendarOpen(false)}
         onSelectDate={handleDateSelect}
       />
-      {!isMobile && (
+      {/* {!isMobile && ( */}
         <OrderTable
           data={currentData}
           currentPage={currentPage}
@@ -381,7 +381,7 @@ const OrderLists = () => {
           totalItems={filteredData.length}
           onPageChange={(newPage) => setCurrentPage(newPage)}
         />
-      )}
+      {/* )} */}
     </div>
   );
 };
