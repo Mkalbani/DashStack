@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import FolderItem from "./FolderItem";
 
-const SideBar = ({
+const Sidebar = ({
   labels,
   addNewLabel,
   setCurrentFolder,
@@ -163,4 +163,4 @@ const SideBar = ({
   );
 };
 
-export default SideBar;
+export default Sidebar;
