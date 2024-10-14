@@ -1,4 +1,4 @@
-import Layout from "../appLayout/layout";
+import Layout from "../appLayout/Layout";
 import UseAuthStatus from "../hooks/UseAuthStatus";
 import { Navigate, Outlet } from "react-router-dom";
 
