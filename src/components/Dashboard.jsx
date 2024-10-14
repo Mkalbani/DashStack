@@ -9,6 +9,7 @@ import RevenueChart from "./Charts/RevenueChart";
 import Cards from "./Cards";
 import SalesChart from "./Charts/SalesChart";
 import { HiCube } from "react-icons/hi2";
+import {  BiLineChart } from "react-icons/bi"
 
 const Dashboard = () => {
   return (
@@ -36,7 +37,7 @@ const Dashboard = () => {
           title="Total Sales"
           value="$89,000"
           change="4.3%"
-          icon={ChartBarIcon}
+          icon={BiLineChart}
           iconBg="bg-green-500"
           changeType="negative"
           text=" Down from yesterday"

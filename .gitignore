@@ -1,5 +1,3 @@
 node_modules
-# firebase
-src/firebase.js
 
 .env
