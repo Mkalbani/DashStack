@@ -15,6 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const ActivityLog = () => {
   const [activities, setActivities] = useState([]);
+  const [lastLogin, setLastLogin] = useState(null);
+  const [signUpTime, setSignUpTime] = useState(null);
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -27,14 +29,22 @@ const ActivityLog = () => {
             activitiesRef,
             where("userId", "==", auth.currentUser.uid),
             orderBy("timestamp", "desc"),
-            limit(20)
+            limit(50) 
           );
           const querySnapshot = await getDocs(q);
           const activityList = querySnapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
           }));
+
           setActivities(activityList);
+
+          // Find last login and sign-up times
+          const loginActivity = activityList.find((a) => a.type === "LOGIN");
+          const signUpActivity = activityList.find((a) => a.type === "SIGN_UP");
+
+          setLastLogin(loginActivity ? loginActivity.timestamp : null);
+          setSignUpTime(signUpActivity ? signUpActivity.timestamp : null);
         } catch (error) {
           console.error("Error fetching activities:", error);
           toast.error("Error fetching activities: " + error.message);
@@ -62,6 +72,21 @@ const ActivityLog = () => {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-2xl">
         <div className="bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="mb-6 border-b border-gray-700 pb-4">
+            <h3 className="text-xl font-medium text-white mb-2">
+              Account Summary
+            </h3>
+            <p className="text-sm text-gray-300">
+              Last Login: {lastLogin ? formatDate(lastLogin) : "N/A"}
+            </p>
+            <p className="text-sm text-gray-300">
+              Sign-up Time: {signUpTime ? formatDate(signUpTime) : "N/A"}
+            </p>
+          </div>
+
+          <h3 className="text-lg font-medium text-white mb-4">
+            Recent Activities
+          </h3>
           {activities.length > 0 ? (
             <ul className="divide-y divide-gray-700">
               {activities.map((activity) => (

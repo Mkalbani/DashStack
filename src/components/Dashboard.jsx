@@ -3,26 +3,29 @@ import {
   ChartBarIcon,
   ClockIcon,
   UsersIcon,
+  ArrowUpIcon,
+  ArrowDownIcon,
 } from "@heroicons/react/24/outline";
 import DealsDetails from "./DealsDetails";
 import RevenueChart from "./Charts/RevenueChart";
 import Cards from "./Cards";
 import SalesChart from "./Charts/SalesChart";
 import { HiCube } from "react-icons/hi2";
-import {  BiLineChart } from "react-icons/bi"
+import { BiLineChart, BiTrendingUp, BiTrendingDown } from "react-icons/bi";
+
 
 const Dashboard = () => {
   return (
     <div className="max-w-7xl mx-auto">
       <h1 className="text-2xl font-semibold text-white mb-6">Dashboard</h1>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {/* Dashboard cards */}
         <DashboardCard
           title="Total User"
           value="40,689"
           change="8.5% "
           icon={UsersIcon}
-          iconBg="bg-purple-500"
+          iconBg="bg-[#8280FF]"
           text="Up from yesterday"
         />
         <DashboardCard
@@ -38,7 +41,7 @@ const Dashboard = () => {
           value="$89,000"
           change="4.3%"
           icon={BiLineChart}
-          iconBg="bg-green-500"
+          iconBg="bg-[#4AD991]"
           changeType="negative"
           text=" Down from yesterday"
         />
@@ -72,7 +75,10 @@ function DashboardCard({
   iconBg,
   changeType = "positive",
   text,
+  iconTrend
 }) {
+    const TrendIcon = changeType === "positive" ? BiTrendingUp : BiTrendingDown;
+
   return (
     <div className="bg-gray-800 rounded-lg shadow p-5">
       <div className="flex justify-between">
@@ -80,21 +86,25 @@ function DashboardCard({
           <h2 className="text-sm text-start font-medium text-gray-400">
             {title}
           </h2>
-          <p className="mt-1 text-start text-3xl font-semibold text-white sm:text-sm">
+          <p className="mt-1 text-start text-2xl font-semibold text-white ">
             {value}
           </p>
         </div>
-        <div className={`${iconBg} rounded-xl p-3`}>
+        <div className={`${iconBg} w-11 h-11 rounded-2xl p-3`}>
           <Icon className="h-6 w-6 text-white" aria-hidden="true" />
         </div>
       </div>
       <div
         className={`mt-4 text-start text-sm  ${
-          changeType === "positive" ? "text-green-400" : "text-red-400"
+          changeType === "positive" ? "text-[#00B69B]" : "text-red-400"
         }`}
       >
-        <span className="font-medium">{change}</span>
-        <span className="text-white">{text}</span>
+        <span className="font-medium flex">
+          {" "}
+          <TrendIcon className="h-4 w-4 mr-1" />
+          {change}
+          <span className="text-white">{text}</span>
+        </span>
       </div>
     </div>
   );
