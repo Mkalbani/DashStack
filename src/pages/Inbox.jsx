@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EmailList from "../components/Inbox/EmailList";
 import ComposeEmail from "../components/Inbox/ComposeEmail";
-import Sidebar from "../components/Inbox/SideBar";
+import SideBar from "../components/Inbox/SideBar";
 import { initialEmailData, initialLabels } from "../components/Inbox/Data";
 
 const Inbox = () => {
@@ -55,7 +55,7 @@ const Inbox = () => {
     <>
       <h1 className="text-2xl font-semibold text-white mb-6">Inbox</h1>
       <div className="flex h-screen bg-gray-900 text-white">
-        <Sidebar
+        <SideBar
           labels={labels}
           addNewLabel={addNewLabel}
           setCurrentFolder={setCurrentFolder}
