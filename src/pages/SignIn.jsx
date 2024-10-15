@@ -88,6 +88,7 @@ const SignIn = () => {
                   id="email"
                   name="email"
                   type="email"
+                  placeholder="poi@poi.com"
                   autoComplete="email"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-700 text-white"
@@ -109,6 +110,7 @@ const SignIn = () => {
                   id="password"
                   name="password"
                   type="password"
+                  placeholder='090909'
                   autoComplete="current-password"
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-700 text-white"
