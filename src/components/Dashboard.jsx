@@ -1,10 +1,7 @@
 import React from "react";
 import {
-  ChartBarIcon,
   ClockIcon,
   UsersIcon,
-  ArrowUpIcon,
-  ArrowDownIcon,
 } from "@heroicons/react/24/outline";
 import DealsDetails from "./DealsDetails";
 import RevenueChart from "./Charts/RevenueChart";

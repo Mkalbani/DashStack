@@ -8,13 +8,21 @@ const EmailItem = ({
   toggleStar,
   onClick,
 }) => (
-  <div className="grid grid-cols-[auto,1fr,auto,2fr,auto] gap-4 items-center bg-gray-800 p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
-    <div className="flex items-center space-x-2">
+  <div
+    className={`grid ${
+      email.label
+        ? "grid-cols-[auto,1fr,auto,3fr,auto]" // With label
+        : "grid-cols-[auto,1fr,3fr,auto]" // Without label
+    } gap-4 items-center bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200`}
+  >
+    {" "}
+    {/* Checkbox and Star */}
+    <div className="flex items-center space-x-3">
       <input
         type="checkbox"
         checked={isSelected}
         onChange={() => toggleEmailSelection(email.id)}
-        className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+        className="form-checkbox h-5 w-5 text-blue-600 bg-inherit rounded focus:ring-blue-500"
       />
       <Star
         className={`cursor-pointer ${
@@ -27,15 +35,17 @@ const EmailItem = ({
         size={20}
       />
     </div>
+    {/* Sender */}
     <div
-      className="font-semibold text-white "
+      className="font-semibold text-white truncate md:whitespace-normal"
       onClick={() => onClick(email)}
     >
       {email.sender}
     </div>
+    {/* Label */}
     {email.label && (
       <span
-        className={`text-xs px-2 py-1 rounded-full font-medium hidden ${
+        className={`text-xs px-3 py-1 rounded-full font-medium ${
           email.label === "Primary"
             ? "bg-green-500 text-green-100"
             : email.label === "Social"
@@ -50,9 +60,11 @@ const EmailItem = ({
         {email.label}
       </span>
     )}
+    {/* Subject */}
     <div className="text-gray-300 truncate" onClick={() => onClick(email)}>
       {email.subject}
     </div>
+    {/* Time */}
     <span className="text-gray-400 text-sm whitespace-nowrap">
       {email.time}
     </span>

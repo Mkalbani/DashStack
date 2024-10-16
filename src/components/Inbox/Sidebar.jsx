@@ -113,8 +113,10 @@ const Sidebar = ({
           setCurrentFolder={setCurrentFolder}
         />
       </div>
-      <div className="mt-4 hidden sm:block">
-        <h3 className="mb-2 text-sm font-medium text-gray-300">Labels</h3>
+      <div className="mt-4  sm:block">
+        <h3 className="mb-2 text-sm font-medium text-gray-300 hidden">
+          Labels
+        </h3>
         {labels.map((label) => (
           <div key={label} className="flex items-center mb-1">
             <input
@@ -128,7 +130,7 @@ const Sidebar = ({
             />
             <label
               htmlFor={`label-${label}`}
-              className="cursor-pointer text-sm"
+              className="cursor-pointer text-sm hidden"
             >
               {label}
             </label>
@@ -153,7 +155,7 @@ const Sidebar = ({
         ) : (
           <button
             onClick={() => setShowAddLabel(true)}
-            className="text-blue-400 mt-2"
+            className="text-blue-400 mt-2 text-xs"
           >
             + Add Label
           </button>

@@ -3,17 +3,20 @@ import React, { useState } from "react";
 const promotions = [
   {
     date: "September 12-22",
-    title: "Enjoy free home delivery in this summer",
+    title: "Enjoy free home ",
+    titleBreak: "delivery in this summer",
     description: "Designer Dresses - Pick from trendy Designer Dress.",
   },
   {
     date: "October 1-15",
-    title: "Fall collection now available",
+    title: "Fall collection ",
+    titleBreak: "now available",
     description: "Cozy sweaters and stylish boots for the autumn season.",
   },
   {
     date: "November 5-20",
-    title: "Pre-holiday sale event",
+    title: "Pre-holiday ",
+    titleBreak: "sale event",
     description: "Get ready for the holidays with our special discounts.",
   },
 ];
@@ -36,18 +39,24 @@ const PromotionalCardCarousel = () => {
   return (
     <div className="bg-dash rounded-3xl p-4 md:p-8 text-white relative h-72 md:h-80 flex flex-col justify-between">
       <div className="flex flex-col h-full justify-between">
-        <div className="flex flex-col px-4 md:px-10 justify-center">
+        <div className="flex flex-col px-4 md:px-12 md:ml-5 justify-center">
           <p className="text-xs md:text-sm mb-1 md:mb-2">{currentPromo.date}</p>
           <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4 leading-tight">
             {currentPromo.title}
+          </h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4 leading-tight">
+            {currentPromo.titleBreak}
           </h2>
           <p className="text-xs md:text-base mb-4 md:mb-6">
             {currentPromo.description}
           </p>
         </div>
-        <button className="bg-orange-500 ml-4 md:ml-8 text-xs md:text-sm text-white py-2 md:py-3 px-6 md:px-8 rounded-md hover:bg-orange-600 transition duration-300 self-start">
-          Get Started
-        </button>
+
+        <div className="md:ml-9">
+          <button className="bg-orange-500 ml-4 md:ml-8 text-xs md:text-sm text-white py-2 md:py-3 px-6 md:px-8 rounded-md hover:bg-orange-600 transition duration-300 self-start">
+            Get Started
+          </button>
+        </div>
       </div>
 
       <button
