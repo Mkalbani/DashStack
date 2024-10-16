@@ -30,6 +30,7 @@ import ActivityLog from "./components/ActivityLog";
 import { contactData } from "./services/data/contactData";
 import { teamData } from "./services/data/teamData";
 import { eventData } from "./services/data/eventData";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [contacts, setNewContacts] = useState(contactData)
@@ -153,6 +154,10 @@ function App() {
     {
       path: "activity-log",
       element: <ActivityLog />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
     },
   ]);
 
