@@ -14,12 +14,12 @@ const IUElelement = () => {
   const [showFilter, setShowFilter] = useState(false);
 
   const barData1 = [
-    { name: "A", value: 20 },
-    { name: "B", value: 30 },
-    { name: "C", value: 15 },
-    { name: "D", value: 25 },
-    { name: "E", value: 22 },
-    { name: "F", value: 18 },
+    { name: "A", value: 20, value2: 11, value3:11 },
+    { name: "B", value: 30, value2: 13, value3:11 },
+    { name: "C", value: 15, value2: 22, value3:11 },
+    { name: "D", value: 25, value2: 11, value3:11 },
+    { name: "E", value: 22, value2: 8,  value3:11},
+    { name: "F", value: 18, value2: 12, value3:11 },
   ];
 
   const barData2 = [
@@ -31,9 +31,23 @@ const IUElelement = () => {
     { name: "F", value1: 18, value2: 22 },
   ];
 
-  const pieData = [
-    { name: "A", value: 8 },
-    { name: "B", value: 25 },
+  const pieDatas = [
+    [
+      { name: "A", value: 10 },
+      { name: "B", value: 30 },
+    ],
+    [
+      { name: "A", value: 30 },
+      { name: "B", value: 10 },
+    ],
+    [
+      { name: "A", value: 10 },
+      { name: "B", value: 15 },
+    ],
+    [
+      { name: "A", value: 30 },
+      { name: "B", value: 15 },
+    ],
   ];
 
   const COLORS = [
@@ -48,25 +62,38 @@ const IUElelement = () => {
   const renderBarCharts = () => {
     const charts = [
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={barData1}>
-          <Bar dataKey="value" fill="#3b82f6" />
+        <BarChart data={barData1} barSize={7}>
+          <Bar dataKey="value" fill="#3b82f6" radius={4} />
         </BarChart>
       </ResponsiveContainer>,
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={barData2}>
-          <Bar dataKey="value1" fill="#22c55e" />
-          <Bar dataKey="value2" fill="#f59e0b" />
+        <BarChart data={barData1} barSize={7}>
+          <Bar dataKey="value" fill="white" stackId="a" />
+          <Bar dataKey="value2" fill="#00C49F" stackId="a" />
+          <Bar
+            dataKey="value3"
+            fill="#D0F1FA"
+            stackId="a"
+            radius={[4, 0, 0, 0]}
+          />
         </BarChart>
       </ResponsiveContainer>,
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={barData1}>
-          <Bar dataKey="value" fill="#ef4444" />
+        <BarChart data={barData2} barSize={7}>
+          <Bar dataKey="value1" fill="#4049FF" radius={4} />
+          <Bar dataKey="value2" fill="#FF9000" radius={4} />
         </BarChart>
       </ResponsiveContainer>,
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={barData2}>
-          <Bar dataKey="value1" fill="#8b5cf6" />
-          <Bar dataKey="value2" fill="#ec4899" />
+        <BarChart data={barData1} barSize={7}>
+          <Bar dataKey="value" fill="#FF5DA0" stackId="a" />
+          <Bar dataKey="value2" fill="#FF84B7" stackId="a" />
+          <Bar
+            dataKey="value3"
+            fill="white"
+            stackId="a"
+            radius={[4, 0, 0, 0]}
+          />
         </BarChart>
       </ResponsiveContainer>,
     ];
@@ -80,19 +107,18 @@ const IUElelement = () => {
 
   const renderPieCharts = () => {
     const colorSets = [
-      ["#3b82f6", "#22c55e"],
-      ["#f59e0b", "#ef4444"],
-      ["#8b5cf6", "#ec4899"],
-      ["#14b8a6", "#f97316"],
+      ["#4049FF", "white"],
+      ["white", "#B140FF"],
+      ["#FF8743", "white"],
+      ["white", "#4393FF"],
     ];
 
-    return colorSets.map((colors, index) => (
+    return pieDatas.map((data, index) => (
       <div key={index} className="w-1/4 h-32">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
-              data={pieData}
-              cx="50%"
+              data={data} 
               cy="50%"
               innerRadius={0}
               outerRadius="80%"
@@ -101,10 +127,10 @@ const IUElelement = () => {
               startAngle={180}
               endAngle={-180}
             >
-              {pieData.map((entry, index) => (
+              {data.map((entry, dataIndex) => (
                 <Cell
-                  key={`cell-${index}`}
-                  fill={colors[index % colors.length]}
+                  key={`cell-${dataIndex}`}
+                  fill={colorSets[index][dataIndex % colorSets[index].length]}
                 />
               ))}
             </Pie>
@@ -114,13 +140,14 @@ const IUElelement = () => {
     ));
   };
 
+
   const renderDonutCharts = () => {
     return COLORS.slice(0, 4).map((color, index) => (
       <div key={index} className="w-1/4 h-32">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
-              data={[{ value: 75 }, { value: 25 }]}
+              data={[{ value: 15 }, { value:80 }]}
               cx="50%"
               cy="50%"
               innerRadius="60%"

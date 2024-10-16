@@ -75,61 +75,79 @@ const AddTeamMember = ({ onAddMember }) => {
         </div>
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
           <div className="grid grid-cols-2 gap-14 mb-4">
-            <input
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              value={formData.firstName}
-              onChange={handleChange}
-              className="bg-gray-700 text-white py-2 px-8 rounded w-full"
-              required
-            />
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              value={formData.lastName}
-              onChange={handleChange}
-              className="bg-gray-700 text-white py-2 px-8 rounded w-full"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your email"
-              value={formData.email}
-              onChange={handleChange}
-              className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4"
-              required
-            />
-            <input
-              type="tel"
-              name="phoneNumber"
-              placeholder="Phone Number"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-              className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4"
-              required
-            />
-            <input
-              type="text"
-              name="position"
-              placeholder="Position"
-              value={formData.position}
-              onChange={handleChange}
-              className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4"
-              required
-            />
+            <div>
+              <label className="text-white">First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                value={formData.firstName}
+                onChange={handleChange}
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-white">Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                value={formData.lastName}
+                onChange={handleChange}
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-white">Your email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                value={formData.email}
+                onChange={handleChange}
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-white">Phone Number</label>
+              <input
+                type="tel"
+                name="phoneNumber"
+                placeholder="Phone Number"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-white">Your Position</label>
+              <input
+                type="text"
+                name="position"
+                placeholder="Position"
+                value={formData.position}
+                onChange={handleChange}
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4"
+                required
+              />
+            </div>
 
-            <select
-              name="gender"
-              value={formData.gender}
-              onChange={handleChange}
-              className="bg-gray-700 text-white p-2 rounded w-full mb-6"
-            >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
+            <div>
+              <label className="text-white">Gender</label>
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                className="bg-gray-700 text-white p-2 rounded w-full mb-6"
+              >
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
           </div>
 
           <div className="flex justify-center">

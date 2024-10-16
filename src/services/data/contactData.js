@@ -29,7 +29,7 @@ export const contactData = [
   {
     name: "Patrick Greer",
     email: "opwili.ngranvt@bevrlo.net",
-    imageSrc: portrait1,
+    imageSrc: portrait6,
   },
   {
     name: "Darrell Ortega",
