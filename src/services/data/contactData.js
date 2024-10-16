@@ -1,4 +1,9 @@
 import portrait1 from "../../assets/images/portrait1.jpg";
+import portrait2 from "../../assets/images/portrait2.avif";
+import portrait3 from "../../assets/images/portrait3.avif";
+import portrait4 from "../../assets/images/portrait4.avif";
+import portrait5 from "../../assets/images/portrait5.avif";
+import portrait6 from "../../assets/images/portrait6.avif";
 
 export const contactData = [
   {
@@ -9,17 +14,17 @@ export const contactData = [
   {
     name: "Duane Dean",
     email: "kutt.dartstoll@stdca.to",
-    imageSrc: portrait1,
+    imageSrc: portrait2,
   },
   {
     name: "Jonathan Barner",
     email: "tora_handy@zimbio.biz",
-    imageSrc: portrait1,
+    imageSrc: portrait3,
   },
   {
     name: "Rosie Glover",
     email: "brknows.morselo@homail.com",
-    imageSrc: portrait1,
+    imageSrc: portrait4,
   },
   {
     name: "Patrick Greer",
@@ -29,6 +34,6 @@ export const contactData = [
   {
     name: "Darrell Ortega",
     email: "rahul.shalashaska@ynho.info",
-    imageSrc: portrait1,
+    imageSrc: portrait5,
   },
 ];
