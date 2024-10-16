@@ -80,10 +80,10 @@ const AddTeamMember = ({ onAddMember }) => {
               <input
                 type="text"
                 name="firstName"
-                placeholder="First Name"
+                placeholder="Enter Your First Name"
                 value={formData.firstName}
                 onChange={handleChange}
-                className="bg-gray-700 text-white py-2 px-8 rounded w-full"
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full text-sm"
                 required
               />
             </div>
@@ -92,57 +92,57 @@ const AddTeamMember = ({ onAddMember }) => {
               <input
                 type="text"
                 name="lastName"
-                placeholder="Last Name"
+                placeholder="Enter Your Last Name"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="bg-gray-700 text-white py-2 px-8 rounded w-full"
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full text-sm"
                 required
               />
             </div>
             <div>
-              <label className="text-white">Your email</label>
+              <label className="text-gray-300">Your email</label>
               <input
                 type="email"
                 name="email"
                 placeholder="Your email"
                 value={formData.email}
                 onChange={handleChange}
-                className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4"
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4 text-sm"
                 required
               />
             </div>
             <div>
-              <label className="text-white">Phone Number</label>
+              <label className="text-gray-300">Phone Number</label>
               <input
                 type="tel"
                 name="phoneNumber"
                 placeholder="Phone Number"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4"
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4 text-sm"
                 required
               />
             </div>
             <div>
-              <label className="text-white">Your Position</label>
+              <label className="text-gray-300">Your Position</label>
               <input
                 type="text"
                 name="position"
                 placeholder="Position"
                 value={formData.position}
                 onChange={handleChange}
-                className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4"
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4 text-sm"
                 required
               />
             </div>
 
             <div>
-              <label className="text-white">Gender</label>
+              <label className="text-gray-300">Gender</label>
               <select
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                className="bg-gray-700 text-white p-2 rounded w-full mb-6"
+                className="bg-gray-700 text-white p-2 rounded w-full mb-6 text-sm"
               >
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>

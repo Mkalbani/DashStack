@@ -3,6 +3,7 @@ import { Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import profile1 from '../assets/images/profile1.avif';
 
 const ProfileDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +54,7 @@ const ProfileDropdown = () => {
       >
         <img
           className="h-8 w-8 rounded-full"
-          src="src/assets/images/profile1.avif"
+          src={profile1}
           alt="User profile"
         />
         <span>{userName}</span>

@@ -85,7 +85,7 @@ const AddNewContact = ({ onAddContact }) => {
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
           <div className="grid grid-cols-2 gap-14 mb-4">
             <div>
-              <label className="text-white">First Name</label>
+              <label className="text-gray-300">First Name</label>
               <input
                 type="text"
                 name="firstName"
@@ -97,7 +97,7 @@ const AddNewContact = ({ onAddContact }) => {
               />
             </div>
             <div>
-              <label className="text-white">Last Name</label>
+              <label className="text-gray-300">Last Name</label>
               <input
                 type="text"
                 name="lastName"
@@ -109,7 +109,7 @@ const AddNewContact = ({ onAddContact }) => {
               />
             </div>
             <div>
-              <label className="text-white">Your email</label>
+              <label className="text-gray-300">Your email</label>
               <input
                 type="email"
                 name="email"
@@ -121,7 +121,7 @@ const AddNewContact = ({ onAddContact }) => {
               />
             </div>
             <div>
-              <label className="text-white">Phone Number</label>
+              <label className="text-gray-300">Phone Number</label>
               <input
                 type="tel"
                 name="phoneNumber"
@@ -133,7 +133,7 @@ const AddNewContact = ({ onAddContact }) => {
               />
             </div>
             <div>
-              <label className="text-white">Date of Birth</label>
+              <label className="text-gray-300">Date of Birth</label>
               <input
                 type="date"
                 name="Date of Birth"
@@ -146,7 +146,7 @@ const AddNewContact = ({ onAddContact }) => {
             </div>
 
             <div>
-              <label className="text-white">Gender</label>
+              <label className="text-gray-300">Gender</label>
               <select
                 name="gender"
                 value={formData.gender}

@@ -85,63 +85,75 @@ const Settings = ({ onAddContact }) => {
           <div className="grid grid-cols-2 gap-14 mb-4 w-full">
             {/* Column 1 - Left side */}
             <div className="col-span-1 space-y-4 w-3/4 ml-20">
-              <input
-                type="text"
-                name="SiteName"
-                placeholder="Site Name"
-                value={formData.SiteName}
-                onChange={handleChange}
-                className="bg-gray-700 text-white py-2 px-8 rounded w-full"
-                required
-              />
-              <input
-                type="text"
-                name="SEOTitle"
-                placeholder="SEO Title"
-                value={formData.SEOTitle}
-                onChange={handleChange}
-                className="bg-gray-700 text-white py-2 px-8 rounded w-full"
-                required
-              />
-              <input
-                type="text"
-                name="SEOKeywords"
-                placeholder="SEO Keywords"
-                value={formData.SEOKeywords}
-                onChange={handleChange}
-                className="bg-gray-700 text-white py-2 px-8 rounded w-full"
-                required
-              />
+              <div>
+                <label className="text-gray-300"> Site Name</label>
+                <input
+                  type="text"
+                  name="SiteName"
+                  placeholder="Site Name"
+                  value={formData.SiteName}
+                  onChange={handleChange}
+                  className="bg-gray-700 text-white py-2 px-8 rounded w-full text-sm"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-gray-300"> SEO Title</label>
+                <input
+                  type="text"
+                  name="SEOTitle"
+                  placeholder="SEO Title"
+                  value={formData.SEOTitle}
+                  onChange={handleChange}
+                  className="bg-gray-700 text-white py-2 px-8 rounded w-full text-sm"
+                  required
+                />
+              </div>
+              <div>
+                <label className="text-gray-300"> SEO Keywords</label>
+                <input
+                  type="text"
+                  name="SEOKeywords"
+                  placeholder="SEO Keywords"
+                  value={formData.SEOKeywords}
+                  onChange={handleChange}
+                  className="bg-gray-700 text-white py-2 px-8 rounded w-full text-sm"
+                  required
+                />
+              </div>
             </div>
 
             {/* Column 2 - Right side */}
-            <div className="col-span-1 flex flex-col justify-between mr-20">
-              <input
-                type="text"
-                name="CopyRight"
-                placeholder="Copy Right"
-                value={formData.CopyRight}
-                onChange={handleChange}
-                className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4"
-                required
-              />
+            <div className="col-span-1 flex flex-col justify-between mr-20 ml-5">
+              <div>
+                <label className="text-gray-300"> Copy Right</label>
+                <input
+                  type="text"
+                  name="CopyRight"
+                  placeholder="Copy Right"
+                  value={formData.CopyRight}
+                  onChange={handleChange}
+                  className="bg-gray-700 text-white py-2 px-8 rounded w-full mb-4 text-sm"
+                  required
+                />
+              </div>
               <textarea
                 type="text"
                 name="SEODescription"
                 placeholder="SEO Description"
                 value={formData.SEODescription}
                 onChange={handleChange}
-                className="bg-gray-700 text-white py-2 px-8 rounded w-full h-full resize-none"
+                className="bg-gray-700 text-white py-2 px-8 rounded w-full h-full resize-none text-sm"
                 required
               />
             </div>
           </div>
 
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full mx-auto">
             <button
               type="submit"
               onClick={() => setIsModalOpen(true)}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded mb-4" 
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-10 rounded mb-4 "
             >
               Save
             </button>
