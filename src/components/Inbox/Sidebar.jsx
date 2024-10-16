@@ -59,7 +59,7 @@ const Sidebar = ({
         className="w-full bg-blue-500 text-white py-2 rounded mb-4 text-xs sm:text-sm "
         onClick={() => setComposeOpen(true)}
       >
-        +<p className="hidden sm:in-line"> Compose</p>
+        +<p className="hidden sm:inline"> Compose</p>
       </button>
       <h3 className="py-2 hidden sm:block text-white">My Email</h3>
       <div className="space-y-2">
@@ -114,7 +114,7 @@ const Sidebar = ({
         />
       </div>
       <div className="mt-4  sm:block">
-        <h3 className="mb-2 text-sm font-medium text-gray-300 hidden">
+        <h3 className="mb-2 text-sm font-medium text-gray-300 hidden sm:inline">
           Labels
         </h3>
         {labels.map((label) => (
@@ -130,7 +130,7 @@ const Sidebar = ({
             />
             <label
               htmlFor={`label-${label}`}
-              className="cursor-pointer text-sm hidden"
+              className="cursor-pointer text-sm hidden sm:inline"
             >
               {label}
             </label>

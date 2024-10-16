@@ -101,7 +101,7 @@ const EmailList = ({
               <input
                 type="text"
                 placeholder="Search mail"
-                className="w-full md:w-1/2 bg-gray-700 text-white p-2 rounded"
+                className="w-full md:w-1/2 bg-gray-700 text-white p-2 rounded-2xl"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
